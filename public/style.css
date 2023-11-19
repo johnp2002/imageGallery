@@ -1,21 +1,33 @@
-h1{
-    color: brown !important;
+h1 {
+  color: brown !important;
 }
 
-#add:hover{
-    
-    backdrop-filter: blur(2px);
-    background-color: rgba(128, 128, 128, 0.421);
+#add:hover {
+  backdrop-filter: blur(2px);
+  background-color: rgba(128, 128, 128, 0.421);
 }
-#add{
-    background: transparent;
+#add {
+  background: transparent;
 }
-#side{
-    background: url('https://i.pinimg.com/736x/85/ec/df/85ecdf1c3611ecc9b7fa85282d9526e0.jpg');
-    background-size: cover;
+#side {
+  background: url("https://i.pinimg.com/736x/85/ec/df/85ecdf1c3611ecc9b7fa85282d9526e0.jpg");
+  background-size: cover;
 }
-#croppingModal{
-    /* width: 600px; */
-    height: 400px ;
-    overflow: scroll;
+#croppingModal {
+  /* width: 600px; */
+  height: 400px;
+  overflow: scroll;
+}
+#croppedImageContainer {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 10px;
+  padding: 20px;
+}
+#croppedImageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
 }
