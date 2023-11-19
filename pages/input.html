@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Cropping</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cropperjs@1.5.12/dist/cropper.min.css">
+</head>
+<body>
+    <input type="file" id="inputImage" accept="image/*">
+    <button id="cropAndSaveButton">Crop and Save</button>
+    <div id="croppedImageContainer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/cropperjs@1.5.12/dist/cropper.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var inputImage = document.getElementById('inputImage');
+            var croppedImageContainer = document.getElementById('croppedImageContainer');
+            var cropper;
+
+            inputImage.addEventListener('change', function (e) {
+                var file = e.target.files[0];
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    // Initialize Cropper.js
+                    cropper = new Cropper(e.target.result, {
+                        aspectRatio: 1, // Adjust as needed
+                        viewMode: 1,
+                    });
+                };
+
+                reader.readAsDataURL(file);
+            });
+
+            // Crop and save button click handler
+            document.getElementById('cropAndSaveButton').addEventListener('click', function () {
+                // Get the cropped canvas
+                var canvas = cropper.getCroppedCanvas();
+
+                // Convert the canvas to a Blob
+                canvas.toBlob(function (croppedBlob) {
+                    // Display the cropped image
+                    displayCroppedImage(croppedBlob);
+
+                    // Optionally, you can use the croppedBlob as needed (e.g., send it to the server)
+                });
+            });
+
+            // Function to display cropped image
+            function displayCroppedImage(blob) {
+                // Create an image element
+                var img = document.createElement('img');
+                img.src = URL.createObjectURL(blob);
+                img.alt = 'Cropped Image';
+
+                // Append the image to the container
+                croppedImageContainer.innerHTML = '';
+                croppedImageContainer.appendChild(img);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+h1{
+    color: brown !important;
+}
+
+#add:hover{
+    
+    backdrop-filter: blur(2px);
+    background-color: rgba(128, 128, 128, 0.421);
+}
+#add{
+    background: transparent;
+}
+#side{
+    background: url('https://i.pinimg.com/736x/85/ec/df/85ecdf1c3611ecc9b7fa85282d9526e0.jpg');
+    background-size: cover;
+}
+#croppingModal{
+    /* width: 600px; */
+    height: 400px ;
+    overflow: scroll;
+}
