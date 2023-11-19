@@ -27,48 +27,52 @@ h1 {
   height: 100%;
   position: absolute;
   
-} 
-/* #croppedImageContainer {
+} */
+#croppedImageContainer {
   margin: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 10px;
   padding: 20px;
-}
-#croppedImageContainer img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
-} */
-#croppedImageContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 20px;
   overflow: hidden;
-  padding: 20px; /* Added padding around the container */
-  max-height: 100vh; /* Limit the maximum height to the viewport height */
 }
 
-#previewImage {
-  max-width: 100%;
-  max-height: 100%; /* Adjusted to use maximum height */
-  margin-top: 20px;
+#croppedImageContainer img {
+  width: 100%;
+  height: auto; /* Maintain the aspect ratio */
+  max-width: 120px; /* Set the maximum width */
+  border-radius: 20px;
 }
 
 #croppingModal {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background: rgba(0, 0, 0, 0.7);
+}
+
+#closeModal {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  z-index: 1; /* Ensure the button is above other elements */
+}
+
+#closeModal:hover {
+  background-color: #c82333;
 }
 
 #croppingImage {
@@ -85,9 +89,9 @@ h1 {
   cursor: pointer;
   font-size: 16px;
   position: fixed;
-  bottom: 20px; /* Adjusted to position the button at the bottom of the screen */
+  bottom: 20px;
   left: 50%;
-  transform: translateX(-50%); /* Center the button horizontally */
+  transform: translateX(-50%);
 }
 
 #cropAndSave:hover {

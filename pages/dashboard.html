@@ -57,12 +57,10 @@
         id="croppedImageContainer"
         class="w-75 h-100 bg-body-tertiary rounded-4 mx-2 shadow-lg"
       >
-        <img
-          id="previewImage"
-          style="width: 300px; margin-top: 20px; display: none"
-        />
+        
       </div>
       <div id="croppingModal" style="display: none">
+        <button id="closeModal">Close</button>
         <img id="croppingImage" src="" alt="Cropping Preview" />
         <button id="cropAndSave">Crop and Save</button>
       </div>
@@ -81,6 +79,10 @@
         console.log("btn clicked");
         window.location.href = "/logout";
       }
+
+      document.getElementById('closeModal').addEventListener('click', function() {
+        document.getElementById('croppingModal').style.display = 'none';
+      });
     </script>
   </body>
 </html>

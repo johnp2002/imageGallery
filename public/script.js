@@ -240,3 +240,14 @@ function chk() {
   }
   
 // Call the chk function to initiate the image fetching and rendering
+
+
+setTimeout(() => {
+    chk()
+}, 1500);
+
+document.getElementById('cropAndSave').addEventListener('click',()=>{
+    setTimeout(() => {
+        chk()
+    }, 1000);
+})
